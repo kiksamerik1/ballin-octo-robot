@@ -9,7 +9,7 @@ import org.junit.*;
 public class PlayersReaderTest{
 
 	@Test
-	public void testReadThreePlayers() throws Exception{
+	public void testReadThreePlayers(){
 
 		PlayersReader reader = new PlayersReader();
 		List<Player> expected = new ArrayList<Player>();
@@ -19,7 +19,7 @@ public class PlayersReaderTest{
 		expected.add(messi);
 		expected.add(ronaldo);
 		expected.add(zidane);
-		List<Player> read = reader.readPlayers(new File(ClassLoader.getSystemResource("./players.csv").toURI()));
+		List<Player> read = reader.readPlayers(getClass().getResourceAsStream("/players.csv"));
 		assertEquals(3, read.size());
 		
 

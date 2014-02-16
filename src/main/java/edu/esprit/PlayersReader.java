@@ -6,11 +6,10 @@ import java.util.logging.*;
 
 public class PlayersReader{
 	
-	public List<Player> readPlayers(File in){
+	public List<Player> readPlayers(InputStream in){
 		List<Player> players = new ArrayList<Player>();
 		try{
-			FileReader fr = new FileReader(in);
-			BufferedReader br = new BufferedReader(fr);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String line = null;
 			while((line = br.readLine()) != null){
 				String[] tokens = line.split(",");
